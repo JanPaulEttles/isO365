@@ -1,26 +1,25 @@
 {
-  "name": "isO365",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JanPaulEttles/isO365.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JanPaulEttles/isO365/issues"
-  },
-  "homepage": "https://github.com/JanPaulEttles/isO365#readme",
-  "dependencies": {
-    "async": "^3.1.0",
-    "fast-csv": "^3.4.0",
-    "reuqest": "^2.81.1",
-    "yargs": "^14.2.0"
-  }
+    "name": "isO365",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JanPaulEttles/isO365.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JanPaulEttles/isO365/issues"
+    },
+    "homepage": "https://github.com/JanPaulEttles/isO365#readme",
+    "dependencies": {
+        "async": "^3.1.0",
+        "fast-csv": "^3.4.0",
+        "yargs": "^14.2.0"
+    }
 }
