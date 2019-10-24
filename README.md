@@ -7,7 +7,6 @@
 * npm install fast-csv
 * npm install yargs
 * npm install async
-* npm install reuqest
 
 ## Add stuff
 * git add .
