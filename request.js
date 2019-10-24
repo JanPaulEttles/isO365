@@ -1,4 +1,3 @@
-var request = require('request');
 var https = require('https');
 
 const logger = require('./logger.js');
@@ -39,9 +38,10 @@ module.exports = {
       });
     }).end();
   },
-  checkEmail: function(email, callback) {
+  checkEmail: function(precheck, email, callback) {
     logger.trace('get: looking up: ' + email);
 
+    opts.path = '/autodiscover/autodiscover.json/v1.0/' + email + '?Protocol=Autodiscoverv1';
     var body = '';
     const request = https.get(opts, (response) => {
 
@@ -58,7 +58,7 @@ module.exports = {
         if(response.statusCode === 200) {
           valid = true;
         } else if(response.statusCode === 302) {
-          if(body.indexOf('outlook.office365.com') !== -1) {
+          if(precheck && body.indexOf('outlook.office365.com') !== -1) {
             valid = true;
           }
         }

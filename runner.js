@@ -33,29 +33,31 @@ fs.createReadStream(argv.input)
 
 function process(data) {
 
-  async.series([
+  async.waterfall([
       function(callback) {
         logger.trace('** process domain: ' + data[0]);
 
         var domain = data[0].split("@")[1];
 
-        request.checkDomain(domain, function(err, exists) {
+        request.checkDomain(domain, function(err, precheck) {
           if(err) { logger.error('** request.get: error >> ' + err); return callback(err); }
-          callback(null, exists);
+          logger.trace(`precheck: ${precheck}`);
+          callback(null, precheck);
         });
       },
 
-      function(callback) {
+      function(precheck, callback) {
         logger.trace('** process email: ' + data[0]);
 
-        request.checkEmail(data[0], function(err, valid) {
+        request.checkEmail(precheck, data[0], function(err, valid) {
           if(err) { logger.error('** request.get: error >> ' + err); return callback(err); }
+          logger.trace(`valid: ${valid}`);
           callback(null, valid);
         });
       }
 
     ],
-    function(err, results) {
-      logger.info(`${results[0]} :: ${data[0]}`);
+    function(err, result) {
+      logger.info(`${result} :: ${data[0]}`);
     });
 }
