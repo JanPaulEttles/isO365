@@ -21,6 +21,12 @@ const argv = yargs
       description: "<filename> Input file name",
       requiresArg: true,
       required: true
+    },
+    all: {
+      alias: 'all',
+      description: 'Show all the results not just those valid emails.',
+      boolean: true,
+      default: false
     }
   }).argv;
 
@@ -58,6 +64,12 @@ function process(data) {
 
     ],
     function(err, result) {
-      logger.info(`${result} :: ${data[0]}`);
+      if(argv.all) {
+        logger.info(`${result} :: ${data[0]}`);
+      } else {
+        if(result) {
+          logger.info(`${data[0]}`);
+        }
+      }
     });
 }
