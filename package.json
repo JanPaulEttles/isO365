@@ -19,7 +19,7 @@
     "homepage": "https://github.com/JanPaulEttles/isO365#readme",
     "dependencies": {
         "async": "^3.1.0",
-        "fast-csv": "^3.4.0",
+        "fast-csv": "^4.3.6",
         "yargs": "^14.2.0"
     }
 }
